@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace VarenykyFaq\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreFaqItemsRequest;
-use App\Models\Faq\Categories;
-use App\Models\Faq\Item;
-use App\Repositories\FaqItemRepository;
-use Illuminate\Contracts\View\View;
+use VarenykyFaq\Models\Item;
+use VarenykyFaq\Repositories\FaqItemRepository;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Varenyky\Http\Controllers\BaseController;
+use VarenykyFaq\Models\Categories;
 
-class FaqItemsController extends Controller
+class FaqItemsController extends BaseController
 {
     public function __construct(FaqItemRepository $repository)
     {
@@ -34,7 +34,7 @@ class FaqItemsController extends Controller
         );
     }
 
-    public function store(StoreFaqItemsRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $create = $request->except(['_token']);
 
@@ -45,7 +45,7 @@ class FaqItemsController extends Controller
 
     public function edit(Item $faqitem): View
     {
-        return view('backend.admin.faqitems.edit', compact('faqitem'), [
+        return view('VarenykyFaq::faqitems.edit', compact('faqitem'), [
             'categories' => Categories::get(),
         ]);
     }

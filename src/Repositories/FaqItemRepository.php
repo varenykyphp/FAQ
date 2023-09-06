@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace VarenykyFaq\Repositories;
 
-use App\Models\Faq\Item;
+use VarenykyFaq\Models\Item;
 use App\Models\NameModel;
 
 class FaqItemRepository extends Repository

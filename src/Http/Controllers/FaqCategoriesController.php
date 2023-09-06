@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace VarenykyFaq\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreFaqCategoriesRequest;
-use App\Models\Faq\Categories;
-use App\Repositories\FaqCategoryRepository;
-use Illuminate\Contracts\View\View;
+
+use VarenykyFaq\Models\Categories;
+use VarenykyFaq\Repositories\FaqCategoryRepository;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Varenyky\Http\Controllers\BaseController;
 
-class FaqCategoriesController extends Controller
+class FaqCategoriesController extends BaseController
 {
     public function __construct(FaqCategoryRepository $repository)
     {
@@ -22,15 +23,15 @@ class FaqCategoriesController extends Controller
     {
         $categories = $this->repository->getAllPaginated();
 
-        return view('backend.admin.faqcategories.index', ['categories' => $categories]);
+        return view('VarenykyFaq::Faq.categories.index', ['categories' => $categories]);
     }
 
     public function create(): View
     {
-        return view('backend.admin.faqcategories.create');
+        return view('VarenykyFaq::Faq.categories.create');
     }
 
-    public function store(StoreFaqCategoriesRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $create = $request->except(['_token']);
 
@@ -41,7 +42,7 @@ class FaqCategoriesController extends Controller
 
     public function edit(Categories $faqcategory): View
     {
-        return view('backend.admin.faqcategories.edit', compact('faqcategory'));
+        return view('VarenykyFaq::Faq.categories.edit', compact('faqcategory'));
     }
 
     public function update(Request $request, Categories $faqcategory): RedirectResponse

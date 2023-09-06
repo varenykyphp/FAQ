@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('faq_categories', function (Blueprint $table) {
             $table->id();
-            $table->longText('name_1')->nullable();
-            $table->longText('name_2')->nullable();
-            $table->longText('name_3')->nullable();
+            $table->longText('name')->nullable();
             $table->integer('sort_order');
             $table->timestamps();
         });
