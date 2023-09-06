@@ -23,12 +23,12 @@ class FaqItemsController extends BaseController
     {
         $items = $this->repository->getAllPaginated();
 
-        return view('backend.admin.faqitems.index', ['items' => $items]);
+        return view('VarenykyFaq::Faqitems.index', ['items' => $items]);
     }
 
     public function create(): View
     {
-        return view('backend.admin.faqitems.create', [
+        return view('VarenykyFaq::Faqitems.create', [
             'categories' => Categories::get(),
         ]
         );
@@ -40,12 +40,12 @@ class FaqItemsController extends BaseController
 
         $items = $this->repository->create($create);
 
-        return redirect()->route('admin.faqitems.index')->with('success', __('labels.added'));
+        return redirect()->route('admin.faqitems.index')->with('success', __('VarenykyFaq::labels.added'));
     }
 
     public function edit(Item $faqitem): View
     {
-        return view('VarenykyFaq::faqitems.edit', compact('faqitem'), [
+        return view('VarenykyFaq::Faqitems.edit', compact('faqitem'), [
             'categories' => Categories::get(),
         ]);
     }
@@ -58,13 +58,13 @@ class FaqItemsController extends BaseController
         }
         $this->repository->update($faqitem->id, $update);
 
-        return redirect()->route('admin.faqitems.edit', $faqitem->id)->with('success', __('labels.updated'));
+        return redirect()->route('admin.faqitems.edit', $faqitem->id)->with('success', __('VarenykyFaq::labels.updated'));
     }
 
     public function destroy(Item $faqitem): RedirectResponse
     {
         $faqitem->delete();
 
-        return redirect()->route('admin.faqitems.index')->with('error', __('labels.deleted'));
+        return redirect()->route('admin.faqitems.index')->with('error', __('VarenykyFaq::labels.deleted'));
     }
 }

@@ -4,7 +4,7 @@ namespace VarenykyFaq\Repositories;
 
 use VarenykyFaq\Models\Item;
 use App\Models\NameModel;
-
+use Varenyky\Repositories\Repository;
 class FaqItemRepository extends Repository
 {
     /**

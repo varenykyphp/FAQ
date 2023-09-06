@@ -13,12 +13,8 @@ class Item extends Model
 
     protected $fillable = [
         'faq_category_id',
-        'name_1',
-        'name_2',
-        'name_3',
-        'body_1',
-        'body_2',
-        'body_3',
+        'name',
+        'body',
         'sort_order',
     ];
 }

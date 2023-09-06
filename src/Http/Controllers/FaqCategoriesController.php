@@ -23,26 +23,26 @@ class FaqCategoriesController extends BaseController
     {
         $categories = $this->repository->getAllPaginated();
 
-        return view('VarenykyFaq::Faq.categories.index', ['categories' => $categories]);
+        return view('VarenykyFaq::Faqcategories.index', ['categories' => $categories]);
     }
 
     public function create(): View
     {
-        return view('VarenykyFaq::Faq.categories.create');
+        return view('VarenykyFaq::Faqcategories.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
         $create = $request->except(['_token']);
-
+        
         $categories = $this->repository->create($create);
 
-        return redirect()->route('admin.faqcategories.index')->with('success', __('labels.added'));
+        return redirect()->route('admin.faqcategories.index')->with('success', __('added'));
     }
 
     public function edit(Categories $faqcategory): View
     {
-        return view('VarenykyFaq::Faq.categories.edit', compact('faqcategory'));
+        return view('VarenykyFaq::Faqcategories.edit', compact('faqcategory'));
     }
 
     public function update(Request $request, Categories $faqcategory): RedirectResponse
@@ -53,13 +53,13 @@ class FaqCategoriesController extends BaseController
         }
         $this->repository->update($faqcategory->id, $update);
 
-        return redirect()->route('admin.faqcategories.edit', $faqcategory->id)->with('success', __('labels.updated'));
+        return redirect()->route('admin.faqcategories.edit', $faqcategory->id)->with('success', __('VarenykyFaq::labels.updated'));
     }
 
     public function destroy(Categories $faqcategory): RedirectResponse
     {
         $faqcategory->delete();
 
-        return redirect()->route('admin.faqcategories.index')->with('error', __('labels.deleted'));
+        return redirect()->route('admin.faqcategories.index')->with('error', __('VarenykyFaq::labels.deleted'));
     }
 }

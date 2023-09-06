@@ -27,6 +27,7 @@ return [
     'choice' => 'Make a choice',
     'template' => 'Template',
     'id' => 'Id',
+    'body'=> 'Body',
     'email' => 'Email',
     'category' => 'Category',
     'faq_categories_id' => 'Category',

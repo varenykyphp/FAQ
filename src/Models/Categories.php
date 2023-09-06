@@ -12,9 +12,7 @@ class Categories extends Model
     protected $table = 'faq_categories';
 
     protected $fillable = [
-        'name_1',
-        'name_2',
-        'name_3',
+        'name',
         'sort_order',
     ];
 

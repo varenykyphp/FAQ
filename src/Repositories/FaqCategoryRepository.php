@@ -4,6 +4,7 @@ namespace VarenykyFaq\Repositories;
 
 use VarenykyFaq\Models\Categories;
 use App\Models\NameModel;
+use Varenyky\Repositories\Repository;
 
 class FaqCategoryRepository extends Repository
 {
