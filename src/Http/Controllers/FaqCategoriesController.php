@@ -23,12 +23,12 @@ class FaqCategoriesController extends BaseController
     {
         $categories = $this->repository->getAllPaginated();
 
-        return view('VarenykyFaq::Faqcategories.index', ['categories' => $categories]);
+        return view('VarenykyFaq::faqcategories.index', ['categories' => $categories]);
     }
 
     public function create(): View
     {
-        return view('VarenykyFaq::Faqcategories.create');
+        return view('VarenykyFaq::faqcategories.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -42,7 +42,7 @@ class FaqCategoriesController extends BaseController
 
     public function edit(Categories $faqcategory): View
     {
-        return view('VarenykyFaq::Faqcategories.edit', compact('faqcategory'));
+        return view('VarenykyFaq::faqcategories.edit', compact('faqcategory'));
     }
 
     public function update(Request $request, Categories $faqcategory): RedirectResponse
