@@ -25,6 +25,11 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="name" class="form-label">{{ __('VarenykyFaq::labels.name') }}</label>
+                        <input type="text" required class="form-control" id="name" name="name"
+                            placeholder="{{ __('VarenykyFaq::labels.name') }}">
+                    </div>
+                    <div class="mb-3">
                         <label for="body" class="form-label">{{ __('VarenykyFaq::labels.body') }} </label>
                         <textarea required class="tiny form-control" name="body" id="body" rows="4">{{ $faqitem->body }}</textarea>
                     </div>
