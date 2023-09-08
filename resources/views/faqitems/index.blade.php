@@ -16,6 +16,7 @@
 @section('create-btn', route('admin.faqitems.create'))
 
 @section('content')
+<div class="card border p-3">
     <table class="table table-striped">
         <thead>
             <tr class="table-dark">
@@ -36,6 +37,7 @@
             @endforelse
         </tbody>
     </table>
+</div>    
     {!! $items->links() !!}
 @stop
 
