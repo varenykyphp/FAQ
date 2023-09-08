@@ -23,12 +23,12 @@ class FaqItemsController extends BaseController
     {
         $items = $this->repository->getAllPaginated();
 
-        return view('VarenykyFaq::Faqitems.index', ['items' => $items]);
+        return view('VarenykyFaq::faqitems.index', ['items' => $items]);
     }
 
     public function create(): View
     {
-        return view('VarenykyFaq::Faqitems.create', [
+        return view('VarenykyFaq::faqitems.create', [
             'categories' => Categories::get(),
         ]
         );
@@ -45,7 +45,7 @@ class FaqItemsController extends BaseController
 
     public function edit(Item $faqitem): View
     {
-        return view('VarenykyFaq::Faqitems.edit', compact('faqitem'), [
+        return view('VarenykyFaq::faqitems.edit', compact('faqitem'), [
             'categories' => Categories::get(),
         ]);
     }
