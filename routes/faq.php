@@ -3,6 +3,7 @@
 
 use App\Http\Kernel;
 use Illuminate\Support\Facades\Route;
+use VarenykyFaq\Http\Controllers\FrontendController;
 use Varenyky\Http\Middleware\Authenticate;
 
 use VarenykyFaq\Http\Controllers\FaqCategoriesController;
@@ -18,7 +19,6 @@ Route::prefix(config('varenyky.path'))->name('admin.')->middleware(resolve(Kerne
 });
 
 Route::middleware(resolve(Kernel::class)->getMiddlewareGroups()['web'])->group(function () {
-    // Route::get('/Faq', [FrontendController::class, 'index'])->name('varenyky.Faqs.index');
-    // Route::get('/Faq/{slug}', [FrontendController::class, 'archive'])->name('varenyky.Faqs.archive');
-    // Route::get('/Faq/{category}/{slug}', [FrontendController::class, 'show'])->name('varenyky.Faqs.show');
+    Route::get('/f/faq', [FrontendController::class, 'index']);
+    Route::get('/f/frequently-asked-questions', [FrontendController::class, 'index']);
 });

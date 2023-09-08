@@ -11,7 +11,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register(): void
     {
-    }   
+    }
 
     /**
      * Bootstrap any application services.
