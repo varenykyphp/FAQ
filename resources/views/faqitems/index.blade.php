@@ -42,7 +42,7 @@
 @stop
 
 @section('js')
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         // Search with inputfield
         $('document').ready(function() {
             $("#search_bar").keyup((function() {
@@ -58,5 +58,5 @@
                 });
             }));
         });
-    </script>
+    </script> --}}
 @stop
